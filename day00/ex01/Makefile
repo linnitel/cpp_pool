@@ -2,19 +2,22 @@ NAME = my_aw_phonebook
 
 CC = clang++
 
-SRCS = phonebook.cpp myPhoneBook.cpp Contact.cpp
+SRCS = phonebook.cpp myPhoneBook.class.cpp Contact.class.cpp
 
-OBJ = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
-HEADER = myPhoneBook.h Contact.h
+HEADERS = myPhoneBook.class.hpp Contact.class.hpp
 
 FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME):
+%.o: %.cpp $(HEADERS)
+	$(CC) $(FLAGS) -c -o $@ $<
+
+$(NAME): $(OBJS)
 	@echo "compile"
-	@$(CC) $(FLAGS) $(SRCS) $(HEADER) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	@echo "cleaning .o files"

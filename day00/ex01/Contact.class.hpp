@@ -1,7 +1,11 @@
 #ifndef CONTACT_CLASS_HPP
-#define CONTACT_CLASS_HPP
+# define CONTACT_CLASS_HPP
 
-#include <string>
+# include <iostream>
+# include <string>
+# define NUM_COLUM 11
+typedef  void (Contact::*ContactGetFn)(std::string input);
+typedef  std::string (Contact::*ContactSetFn)(void);
 
 class Contact {
 
@@ -22,17 +26,17 @@ public:
     Contact(void);
     ~Contact(void);
 
-    const std::string getFirstName (void);
-    const std::string getLastName (void);
-    const std::string getNickname (void);
-    const std::string getLogin (void);
-    const std::string getPostalAddress (void);
-    const std::string getEmailAddress (void);
-    const std::string getPhoneNumber (void);
-    const std::string getBirthday (void);
-    const std::string getFavoriteMeal (void);
-    const std::string getUnderwearColor (void);
-    const std::string getDarkestSecret (void);
+    std::string getFirstName (void);
+    std::string getLastName (void);
+    std::string getNickname (void);
+    std::string getLogin (void);
+    std::string getPostalAddress (void);
+    std::string getEmailAddress (void);
+    std::string getPhoneNumber (void);
+    std::string getBirthday (void);
+    std::string getFavoriteMeal (void);
+    std::string getUnderwearColor (void);
+    std::string getDarkestSecret (void);
     void setFirstName (std::string input);
     void setLastName (std::string input);
     void setNickname (std::string input);
@@ -44,8 +48,6 @@ public:
     void setFavoriteMeal (std::string input);
     void setUnderwearColor (std::string input);
     void setDarkestSecret (std::string input);
-
-    void addContact(std::string person[11]);
 };
 
 #endif

@@ -1,12 +1,10 @@
 
 #include <iostream>
-#include <cctype>
-#include <string>
 #include "myPhoneBook.class.hpp"
 
 int main(void)
 {
-    myPoneBook  book;
+    myPhoneBook  book;
     std::string command;
 
     std::cout << "||| Welcome to the Awesome Phonebook by tisabel! |||" << std::endl;
@@ -18,14 +16,14 @@ int main(void)
     while (true)
     {
         std::cout << "||| Write a command:";
-        std:cin >> command;
+        std::cin >> command;
         if (command == "ADD")
         {
-            myPoneBook:myPhoneBook();
+            book.addPerson();
         }
         else if (command == "SEARCH")
         {
-
+            book.searchPerson();
         }
         else if (command == "EXIT")
             return (0);
