@@ -1,32 +1,20 @@
 
 #include "myPhoneBook.class.hpp"
 
-myPhoneBook::myPhoneBook(void): _contact_num(0) {
-    this->_varNames[0] = "First name";
-    this->_varNames[1] = "Last name";
-    this->_varNames[2] = "Nickname";
-    this->_varNames[3] = "Login";
-    this->_varNames[4] = "Postal address";
-    this->_varNames[5] = "Email address";
-    this->_varNames[6] = "Phone number";
-    this->_varNames[7] = "Birthday";
-    this->_varNames[8] = "Favorite Meal";
-    this->_varNames[9] = "Underwear color";
-    this->_varNames[10] = "Darkest secret";
+myPhoneBook::myPhoneBook(): _contact_num(0) {
 }
 
-myPhoneBook::~myPhoneBook(void) {
+myPhoneBook::~myPhoneBook() {
 }
 
-void myPhoneBook::addPerson(void){
+void myPhoneBook::addPerson(){
     if (_contact_num <= CONTACT_SIZE) {
-        std::string person[NUM_COLUM];
-        std::cout << "||| Please add new contact data |||" << std::endl;
-        for (int i = 0; i < NUM_COLUM; i++) {
-            std::cout << this->_varNames[i] << ": ";
-            std::cin >> person[i];
-            std::cout << std::endl;
-            this->_person[_contact_num].func_set[i](person[i]);
+        std::string contct[NUM_COLUMN];
+        std::cout << "||| Please add new contact data                 |||" << std::endl;
+        for (int i = 0; i < NUM_COLUMN; i++) {
+            std::cout << this->_person[_contact_num].getContactName(i) << ": ";
+            std::cin >> contct[i];
+            this->_person[_contact_num].setContact(i, contct[i]);
         }
         _contact_num++;
     }
@@ -35,40 +23,44 @@ void myPhoneBook::addPerson(void){
     }
 }
 
-void myPhoneBook::_printAll(void) const{
+void myPhoneBook::_printAll() const{
     int len;
     std::cout << "—————————— —————————— —————————— ——————————" << std::endl;
-    for (int i = 0; i <= _contact_num; i++) {
+    for (int i = 0; i < _contact_num; i++) {
         std::cout.width(COLUMN_SIZE);
         std::cout << i << "|";
-        for (int j = 0; j < NUM_COLUM_PRINT; j++) {
-            std::cout.width(COLUMN_SIZE - 1);
-            std::cout << this->_person[i].func_get[j];
-            if ((len = this->_person[i].func_get[j]().length()) < COLUMN_SIZE - 1) {
+        for (int j = 0; j < NUM_COLUMN_PRINT; j++) {
+            std::cout << this->_person[i].getContact(j).substr(0,COLUMN_SIZE - 1);
+            if ((len = this->_person[i].getContact(j).length()) < COLUMN_SIZE - 1) {
                 for (int k = len; k < COLUMN_SIZE; k++)
                     std::cout << ' ';
             }
             else
                 std::cout << '.';
-            std::cout << "|" << std::endl;
+            std::cout << "|";
         }
+        std::cout << std::endl;
     }
     std::cout << "—————————— —————————— —————————— ——————————" << std::endl;
 }
 
 void myPhoneBook::_printPerson(int i) const{
-    for (int j = 0; j < NUM_COLUM; j++) {
-        std::cout << this->_varNames[j] << ": ";
-        std::cout << this->_person[i].func_get[j] << std::endl;
+    for (int j = 0; j < NUM_COLUMN; j++) {
+        std::cout << this->_person[i].getContactName(j) << ": ";
+        std::cout << this->_person[i].getContact(j) << std::endl;
     }
 }
 
-void myPhoneBook::searchPerson(void) const{
+void myPhoneBook::searchPerson() const{
     int i;
+    if (_contact_num == 0) {
+        std::cout << "There are no contacts to search. Please add some contacts first" << std::endl;
+        return;
+    }
     this->_printAll();
     std::cout << "Specify the index of the contact:";
     std::cin >> i;
-    while (std::cin.fail() || i >= CONTACT_SIZE) {
+    while (std::cin.fail() || i >= _contact_num || i < 0) {
         std::cout << "Wrong input. Please enter a valid index" << std::endl;
         std::cin.clear();
         std::cin.ignore(256,'\n');

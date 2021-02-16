@@ -7,24 +7,23 @@
 # include <string>
 # define CONTACT_SIZE 8
 # define COLUMN_SIZE 10
-# define NUM_COLUM_PRINT 3
+# define NUM_COLUMN_PRINT 3
 
 class myPhoneBook {
 
 private:
     Contact _person[CONTACT_SIZE];
     int _contact_num;
-    std::string _varNames[NUM_COLUM];
-    void _printAll(void) const;
-    void _selectOne(void) const;
+
+    void _printAll() const;
     void _printPerson(int i) const;
 
 public:
-    myPhoneBook(void);
-    ~myPhoneBook(void);
+    myPhoneBook();
+    ~myPhoneBook();
 
-    void addPerson(void);
-    void searchPerson(void) const;
+    void addPerson();
+    void searchPerson() const;
 };
 
 #endif

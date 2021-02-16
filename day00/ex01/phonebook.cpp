@@ -2,7 +2,7 @@
 #include <iostream>
 #include "myPhoneBook.class.hpp"
 
-int main(void)
+int main()
 {
     myPhoneBook  book;
     std::string command;

@@ -3,51 +3,22 @@
 
 # include <iostream>
 # include <string>
-# define NUM_COLUM 11
-typedef  void (Contact::*ContactGetFn)(std::string input);
-typedef  std::string (Contact::*ContactSetFn)(void);
+# include "Field.class.hpp"
+
+# define NUM_COLUMN 11
 
 class Contact {
 
 private:
-    std::string _firstName;
-    std::string _lastName;
-    std::string _nickname;
-    std::string _login;
-    std::string _postalAddress;
-    std::string _emailAddress;
-    std::string _phoneNumber;
-    std::string _birthday;
-    std::string _favoriteMeal;
-    std::string _underwearColor;
-    std::string _darkestSecret;
+    Field _contact[NUM_COLUMN];
 
 public:
-    Contact(void);
-    ~Contact(void);
+    Contact();
+    ~Contact();
 
-    std::string getFirstName (void);
-    std::string getLastName (void);
-    std::string getNickname (void);
-    std::string getLogin (void);
-    std::string getPostalAddress (void);
-    std::string getEmailAddress (void);
-    std::string getPhoneNumber (void);
-    std::string getBirthday (void);
-    std::string getFavoriteMeal (void);
-    std::string getUnderwearColor (void);
-    std::string getDarkestSecret (void);
-    void setFirstName (std::string input);
-    void setLastName (std::string input);
-    void setNickname (std::string input);
-    void setLogin (std::string input);
-    void setPostalAddress (std::string input);
-    void setEmailAddress (std::string input);
-    void setPhoneNumber (std::string input);
-    void setBirthday (std::string input);
-    void setFavoriteMeal (std::string input);
-    void setUnderwearColor (std::string input);
-    void setDarkestSecret (std::string input);
+    void setContact(int i, std::string input);
+    std::string getContact(int i) const;
+    std::string getContactName(int i) const;
 };
 
 #endif

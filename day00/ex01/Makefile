@@ -2,13 +2,13 @@ NAME = my_aw_phonebook
 
 CC = clang++
 
-SRCS = phonebook.cpp myPhoneBook.class.cpp Contact.class.cpp
+SRCS = phonebook.cpp myPhoneBook.class.cpp Contact.class.cpp Field.class.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = myPhoneBook.class.hpp Contact.class.hpp
+HEADERS = myPhoneBook.class.hpp Contact.class.hpp Field.class.hpp
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 
 all: $(NAME)
 
