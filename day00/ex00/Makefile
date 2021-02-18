@@ -4,7 +4,7 @@ CC = clang++
 
 SRCS = megaphone.cpp
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all:
 	@echo "compile"

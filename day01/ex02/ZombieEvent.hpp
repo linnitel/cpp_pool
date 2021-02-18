@@ -1,8 +1,25 @@
-//
-// Created by Juliq Marcenko on 2/16/21.
-//
 
-#ifndef CPP_POOL_ZOMBIEEVENT_H
-#define CPP_POOL_ZOMBIEEVENT_H
+#ifndef ZOMBIEEVENT_H
+# define ZOMBIEEVENT_H
 
-#endif //CPP_POOL_ZOMBIEEVENT_H
+# include <iostream>
+# include "Zombie.hpp"
+
+class ZombieEvent {
+
+private:
+    std::string _type;
+    std::string _getRandomName() const;
+
+public:
+    ZombieEvent();
+    ZombieEvent(std::string const &type);
+    ~ZombieEvent();
+
+    void setZombieType(std::string const &type);
+    Zombie* newZombie(std::string const &name);
+    Zombie* randomChump();
+
+};
+
+#endif

@@ -8,7 +8,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 HEADERS = Pony.hpp
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

@@ -8,7 +8,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 HEADERS = myPhoneBook.class.hpp Contact.class.hpp Field.class.hpp
 
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra -g -std=c++98
 
 all: $(NAME)
 

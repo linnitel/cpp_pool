@@ -118,6 +118,30 @@
 		<Unit filename="/Users/tisabel/Documents/cpp_pool/day00/ex01/phonebook.o">
 			<Option target="cpp_pool"/>
 		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex00/Pony.cpp">
+			<Option target="cpp_pool"/>
+		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex00/Pony.hpp">
+			<Option target="cpp_pool"/>
+		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex00/main.cpp">
+			<Option target="cpp_pool"/>
+		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex01/ex01.cpp">
+			<Option target="cpp_pool"/>
+		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex02/Zombie.cpp">
+			<Option target="cpp_pool"/>
+		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex02/Zombie.hpp">
+			<Option target="cpp_pool"/>
+		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex02/ZombieEvent.cpp">
+			<Option target="cpp_pool"/>
+		</Unit>
+		<Unit filename="/Users/tisabel/Documents/cpp_pool/day01/ex02/ZombieEvent.hpp">
+			<Option target="cpp_pool"/>
+		</Unit>
 		<Unit filename="/Users/tisabel/Documents/cpp_pool/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

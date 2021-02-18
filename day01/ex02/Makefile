@@ -1,14 +1,14 @@
-NAME = pony
+NAME = zombie_event
 
 CC = clang++
 
-SRCS = main.cpp Pony.cpp
+SRCS = main.cpp Zombie.cpp ZombieEvent.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = Pony.hpp
+HEADERS =  Zombie.hpp ZombieEvent.hpp
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g -std=c++98
 
 all: $(NAME)
 

@@ -1,18 +1,16 @@
-NAME = pony
+NAME = ex01
 
 CC = clang++
 
-SRCS = main.cpp Pony.cpp
+SRCS = ex01.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = Pony.hpp
-
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	$(CC) $(FLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
