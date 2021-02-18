@@ -1,8 +1,6 @@
 
 # include <iostream>
 
-std::string g_leg = "HI THIS IS LEG";
-
 void pointerChange(std::string* WeaponPointer) {
     *WeaponPointer += "! AND I AM CLEVER";
 }
@@ -12,7 +10,7 @@ void referenceChange(std::string& WeaponReference) {
 }
 
 int main() {
-    std::string Weapon = "HI THIS IS BRAIN";
+    std::string Brain = "HI THIS IS BRAIN";
     std::string* brainPointer = &brain;
     std::string& brainReference = brain;
     std::cout << "brain // :" << brain << std::endl;

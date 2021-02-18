@@ -9,10 +9,12 @@ File::~File() {
 
 int File::_readFile() {
     std::ifstream origFile(this->_origFileName);
+    std::stringstream buffer;
     if (origFile.is_open())
     {
-        origFile >> _data;
+        buffer << origFile.rdbuf();
         origFile.close();
+        this->_data = std::string::str(buffer);
         return (0);
     }
     else {
@@ -23,12 +25,10 @@ int File::_readFile() {
 
 void File::_changeArg() {
     std::size_t sPos;
-    std::size_t dataLen;
 
-    dataLen = this->_data.length();
     while (true) {
         sPos = this->_data.find(_s1);
-        if (sPos == dataLen) { break; }
+        if (sPos == std::string::npos) { break; }
         this->_data.replace(sPos, this->_s1.length(), this->_s2);
     }
 }

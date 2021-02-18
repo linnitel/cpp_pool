@@ -2,6 +2,7 @@
 # include "ZombieHord.hpp"
 
 ZombieHord::ZombieHord() {
+    std::srand(std::time(0));
 }
 
 ZombieHord::ZombieHord(int N): _num(N) {
@@ -27,7 +28,6 @@ std::string ZombieHord::_getRandomName() const{
     char vowels[] = {'a','e','i','o','u','y'};
     int nameLen;
 
-    std::srand(std::time(0));
     nameLen = std::rand() % 6 + 3;
     for (int i = 0; i < nameLen; i++) {
         if (i == 0)
@@ -53,7 +53,6 @@ std::string ZombieHord::_getRandomName() const{
 std::string ZombieHord::_getRandomType() const{
     std::string list[] = {"The Creature", "Zombie Boss", "Little Zombie", "Zombie Hound", "Stupid Zombie"};
 
-    std::srand(std::time(0));
     return (list[std::rand() % 5]);
 }
 
