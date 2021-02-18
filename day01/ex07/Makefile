@@ -10,6 +10,8 @@ HEADERS = File.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 
+.PHONY: all clean fclean bonus re test1 test2
+
 all: $(NAME)
 
 %.o: %.cpp $(HEADERS)
@@ -29,3 +31,9 @@ fclean: clean
 
 re: fclean all
 	@echo "recompile"
+
+test1:
+	./$(NAME) this some test/test_1.txt
+
+test2:
+	./$(NAME) "lorem" POSSUM test/test_2

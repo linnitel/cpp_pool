@@ -5,4 +5,4 @@ add_executable(
         Zombie.hpp
         ZombieEvent.cpp
         ZombieEvent.hpp
-        main.cpp day01/ex03/ZombieHord.cpp day01/ex03/ZombieHord.hpp day01/ex04/ex04.cpp day01/ex05/Human.cpp day01/ex05/Human.hpp)
+        main.cpp day01/ex03/ZombieHord.cpp day01/ex03/ZombieHord.hpp day01/ex04/ex04.cpp day01/ex05/Human.cpp day01/ex05/Human.hpp day01/ex07/File.cpp day01/ex07/File.hpp)
