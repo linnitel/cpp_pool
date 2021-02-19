@@ -27,7 +27,7 @@ clean:
 
 fclean: clean
 	@echo "cleaning executable"
-	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME) test/*.replace
 
 re: fclean all
 	@echo "recompile"
@@ -36,4 +36,4 @@ test1:
 	./$(NAME) this some test/test_1.txt
 
 test2:
-	./$(NAME) "lorem" POSSUM test/test_2
+	./$(NAME) "Lorem" POSSUM test/test_2

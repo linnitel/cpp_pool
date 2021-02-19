@@ -14,7 +14,7 @@ int File::_readFile() {
     {
         buffer << origFile.rdbuf();
         origFile.close();
-        this->_data = buffer.str(buffer);
+        this->_data = buffer.str();
         return (0);
     }
     else {

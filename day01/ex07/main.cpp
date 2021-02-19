@@ -1,6 +1,8 @@
 
 #include <fstream>
 #include <iostream>
+#include <sstream>
+# include <string>
 #include "File.hpp"
 
 // "This program takes two or three arguments (the first is string you want to replace, the second the string you want to replace it with and the third is the file."
