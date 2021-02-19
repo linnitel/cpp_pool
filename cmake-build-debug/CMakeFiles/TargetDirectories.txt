@@ -1,2 +1,0 @@
-/Users/tisabel/Documents/cpp_pool/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/tisabel/Documents/cpp_pool/cmake-build-debug/CMakeFiles/edit_cache.dir

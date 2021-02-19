@@ -8,7 +8,7 @@ myPhoneBook::~myPhoneBook() {
 }
 
 void myPhoneBook::addPerson(){
-    if (_contact_num <= CONTACT_SIZE) {
+    if (_contact_num < CONTACT_SIZE) {
         std::string contct[NUM_COLUMN];
         std::cout << "||| Please add new contact data                 |||" << std::endl;
         for (int i = 0; i < NUM_COLUMN; i++) {
