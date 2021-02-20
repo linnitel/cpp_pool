@@ -1,22 +1,22 @@
 
-#ifndef ZOMBIEHORD_HPP
-# define ZOMBIEHORD_HPP
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
 # include <iostream>
 # include "Zombie.hpp"
 
-class ZombieHord {
+class ZombieHorde {
 
 private:
     int _num;
-    Zombie *_zombieHord;
+    Zombie *_zombieHorde;
     std::string _getRandomName() const;
     std::string _getRandomType() const;
 
 public:
-    ZombieHord();
-    ZombieHord(int N);
-    ~ZombieHord();
+    ZombieHorde();
+    ZombieHorde(int N);
+    ~ZombieHorde();
 
     void announce();
 

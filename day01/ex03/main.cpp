@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "ZombieHord.hpp"
+#include "ZombieHorde.hpp"
 #define SIZE_OF_PACK 10
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
         std::cin.ignore(256,'\n');
         std::cin >> num;
     }
-    ZombieHord *zombies = new ZombieHord(num);
+    ZombieHorde *zombies = new ZombieHorde(num);
     zombies->announce();
     std::cout << "Shoot zombies!" << std::endl;
     delete zombies;

@@ -1,12 +1,12 @@
-NAME = zombie_hord
+NAME = zombie_horde
 
 CC = clang++
 
-SRCS = main.cpp Zombie.cpp ZombieHord.cpp
+SRCS = main.cpp Zombie.cpp ZombieHorde.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS =  Zombie.hpp ZombieHord.hpp
+HEADERS =  Zombie.hpp ZombieHorde.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 

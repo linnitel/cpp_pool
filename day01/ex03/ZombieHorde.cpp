@@ -1,28 +1,28 @@
 
-# include "ZombieHord.hpp"
+# include "ZombieHorde.hpp"
 
-ZombieHord::ZombieHord() {
+ZombieHorde::ZombieHorde() {
     std::srand(std::time(0));
 }
 
-ZombieHord::ZombieHord(int N): _num(N) {
-    _zombieHord = new Zombie[_num];
+ZombieHorde::ZombieHorde(int N): _num(N) {
+    _zombieHorde = new Zombie[_num];
     if (_num <= 0) {
         std::cout << "No, this is wrong number of zombies, use positive integer" << std::endl;
     }
     else {
         for (int i = 0; i < _num; i++) {
-            this->_zombieHord[i].setName(_getRandomName());
-            this->_zombieHord[i].setType(_getRandomType());
+            this->_zombieHorde[i].setName(_getRandomName());
+            this->_zombieHorde[i].setType(_getRandomType());
         }
     }
 }
 
-ZombieHord::~ZombieHord() {
-    delete []_zombieHord;
+ZombieHorde::~ZombieHorde() {
+    delete []_zombieHorde;
 }
 
-std::string ZombieHord::_getRandomName() const{
+std::string ZombieHorde::_getRandomName() const{
     std::string name = "";
     char consonants[] = {'b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z'};
     char vowels[] = {'a','e','i','o','u','y'};
@@ -50,14 +50,14 @@ std::string ZombieHord::_getRandomName() const{
     return (name);
 }
 
-std::string ZombieHord::_getRandomType() const{
+std::string ZombieHorde::_getRandomType() const{
     std::string list[] = {"The Creature", "Zombie Boss", "Little Zombie", "Zombie Hound", "Stupid Zombie"};
 
     return (list[std::rand() % 5]);
 }
 
-void ZombieHord::announce() {
+void ZombieHorde::announce() {
     for (int i = 0; i < _num; i++) {
-        this->_zombieHord[i].announce();
+        this->_zombieHorde[i].announce();
     }
 }
