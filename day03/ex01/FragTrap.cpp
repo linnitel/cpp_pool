@@ -2,7 +2,7 @@
 #include "FragTrap.hpp"
 #define RANDOM_ENERGY_COST 25
 
-FragTrap::FragTrap(std::string const &name): _name(name), _hitPoints(MAX_HIT_P), _energyPoints(MAX_E_P), _level(1), _meleeDamage(30), _rangeDamage(20), _armorDamageReduction(5) {
+FragTrap::FragTrap(std::string const &name): _name(name), _hitPoints(100), _energyPoints(100), _level(1), _meleeDamage(30), _rangeDamage(20), _armorDamageReduction(5) {
     std::cout << "Default constructor called" << std::endl;
     std::cout << this->_name << " <Oh no, it's a Trap, FragTrap!!!>" << std::endl;
     std::srand(std::time(0));
