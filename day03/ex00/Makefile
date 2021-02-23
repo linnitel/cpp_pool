@@ -1,12 +1,12 @@
-NAME = ex00
+NAME = frag_trap
 
 CC = clang++
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp FragTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = Fixed.hpp
+HEADERS = FragTrap.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 
