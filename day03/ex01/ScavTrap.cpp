@@ -1,25 +1,24 @@
 
-#include "FragTrap.hpp"
-#define RANDOM_ENERGY_COST 25
+#include "ScavTrap.hpp"
 
-FragTrap::FragTrap(std::string const &name): _name(name), _hitPoints(100), _energyPoints(100), _level(1), _meleeDamage(30), _rangeDamage(20), _armorDamageReduction(5) {
+ScavTrap::ScavTrap(std::string const &name): _name(name), _hitPoints(MAX_S_HIT_P), _energyPoints(MAX_S_ENERGY_P), _level(1), _meleeDamage(20), _rangeDamage(15), _armorDamageReduction(3) {
     std::cout << "Default constructor called" << std::endl;
-    std::cout << this->_name << " <Oh no, it's a Trap, FragTrap!!!>" << std::endl;
+    std::cout << this->_name << ": <I am your nightmare, ScavTrap!!! What is that noise coming from? Are this my parts falling down?!>" << std::endl;
     std::srand(std::time(0));
 }
 
-FragTrap::FragTrap(FragTrap &trap) {
+ScavTrap::ScavTrap(ScavTrap &trap) {
     std::cout << "Copy constructor called" << std::endl;
-    std::cout << this->_name << " <Is it also me?>" << std::endl;
-    *this = trap;
+	*this = trap;
+    std::cout << this->_name << ": <What do we have here? AAAAAAAA, I got crazy, I see myself!!!!!>" << std::endl;
 }
 
-FragTrap::~FragTrap() {
+ScavTrap::~ScavTrap() {
     std::cout << "Default destructor called" << std::endl;
-    std::cout << this->_name << " <I'm too young to die!!!>" << std::endl;
+    std::cout << this->_name << ": <Please don't kill me, I can dance!!!>" << std::endl;
 }
 
-void FragTrap::operator=(const FragTrap &F) {
+void ScavTrap::operator=(const ScavTrap &F) {
     std::cout << "Assignation operator called" << std::endl;
     this->_name = F.getName();
     this->_hitPoints = F.getHitPoints();
@@ -30,117 +29,105 @@ void FragTrap::operator=(const FragTrap &F) {
     this->_armorDamageReduction = F.getArmorDamageReduction();
 }
 
-int FragTrap::getHitPoints() const {
+int ScavTrap::getHitPoints() const {
     return (this->_hitPoints);
 };
 
-void FragTrap::setHitPoints( int const &hit) {
+void ScavTrap::setHitPoints( int const &hit) {
     this->_hitPoints = hit;
 };
 
-int FragTrap::getEnergyPoints() const {
+int ScavTrap::getEnergyPoints() const {
     return (this->_energyPoints);
 };
 
-void FragTrap::setEnergyPoints( int const &energy) {
+void ScavTrap::setEnergyPoints( int const &energy) {
     this->_energyPoints = energy;
 };
 
-int FragTrap::getLevel() const {
+int ScavTrap::getLevel() const {
     return (this->_level);
 };
 
-void FragTrap::setLevel(const int &level) {
+void ScavTrap::setLevel(const int &level) {
     this->_level = level;
 };
 
-int FragTrap::getMeleeDamage() const {
+int ScavTrap::getMeleeDamage() const {
     return (this->_meleeDamage);
 };
 
-void FragTrap::setMeleeDamage(const int &melee) {
+void ScavTrap::setMeleeDamage(const int &melee) {
     this->_meleeDamage = melee;
 };
 
-int FragTrap::getRangeDamage() const {
+int ScavTrap::getRangeDamage() const {
     return (this->_rangeDamage);
 };
 
-void FragTrap::setRangeDamage(const int &range) {
+void ScavTrap::setRangeDamage(const int &range) {
     this->_rangeDamage = range;
 };
 
-int FragTrap::getArmorDamageReduction() const {
+int ScavTrap::getArmorDamageReduction() const {
     return (this->_armorDamageReduction);
 };
 
-void FragTrap::setArmorDamageReduction(const int &armor) {
+void ScavTrap::setArmorDamageReduction(const int &armor) {
     this->_armorDamageReduction = armor;
 };
 
-std::string FragTrap::getName() const {
+std::string ScavTrap::getName() const {
     return (this->_name);
 };
 
-void FragTrap::setName(std::string const &name) {
+void ScavTrap::setName(std::string const &name) {
     this->_name = name;
 };
 
-void FragTrap::rangedAttack(std::string const & target) {
-    std::cout << "FR4G-TP <" << this->_name << "> attacks <" << target << "> at range, causing <" << _rangeDamage << "> points of damage!" << std::endl;
-    std::cout << this->_name << " <Is that what people look like inside?>" << std::endl;
+void ScavTrap::rangedAttack(std::string const & target) {
+    std::cout << "FR4G-TP (ScavTrap) <" << this->_name << "> attacks <" << target << "> at range, causing <" << _rangeDamage << "> points of damage!" << std::endl;
+    std::cout << this->_name << ": <Stop me before I kill again, except don't!>" << std::endl;
 };
 
-void FragTrap::meleeAttack(std::string const & target) {
-    std::cout << "FR4G-TP <" << this->_name << "> attacks <" << target << "> by melee attack, causing <" << _meleeDamage << "> points of damage!" << std::endl;
-    std::cout << this->_name << " <Is it dead? Can, can I open my eyes now?>" << std::endl;
+void ScavTrap::meleeAttack(std::string const & target) {
+    std::cout << "FR4G-TP (ScavTrap) <" << this->_name << "> attacks <" << target << "> by melee attack, causing <" << _meleeDamage << "> points of damage!" << std::endl;
+    std::cout << this->_name << ": <Ha ha ha! Fall before your robot overlord!>" << std::endl;
 };
 
-void FragTrap::takeDamage(unsigned int amount) {
+void ScavTrap::takeDamage(unsigned int amount) {
     int dmg = ((int)amount - this->_armorDamageReduction);
     if (this->_hitPoints - dmg < 0) {
-		std::cout << "FR4G-TP <" << this->_name << "> takes <" << this->_hitPoints << "> points of damage!" << std::endl;
-        std::cout << this->_name << " <If only my chassis... weren't made of recycled human body parts! Wahahaha!>" << std::endl;
+		std::cout << "FR4G-TP (ScavTrap) <" << this->_name << "> takes <" << this->_hitPoints << "> points of damage!" << std::endl;
+        std::cout << this->_name << ": <I can't feel my fingers! Gah! I don't have any fingers!>" << std::endl;
         this->_hitPoints = 0;
     }
     else {
-		std::cout << "FR4G-TP <" << this->_name << "> takes <" << dmg << "> points of damage!" << std::endl;
-        std::cout << this->_name << " <Why do I even feel pain?!>" << std::endl;
+		std::cout << "FR4G-TP (ScavTrap) <" << this->_name << "> takes <" << dmg << "> points of damage!" << std::endl;
+        std::cout << this->_name << ": <That looks like it hurts!>" << std::endl;
         this->_hitPoints -= dmg;
     }
 };
 
-void FragTrap::beRepaired(unsigned int amount) {
+void ScavTrap::beRepaired(unsigned int amount) {
     if (this->_hitPoints + amount > this->_maxHitPoints) {
-		std::cout << "FR4G-TP <" << this->_name << "> repairs <" << this->_maxHitPoints - this->_hitPoints << "> hit points!" << std::endl;
-        std::cout << this->_name << " <I'm so sexy!!!>" << std::endl;
+		std::cout << "FR4G-TP (ScavTrap) <" << this->_name << "> repairs <" << this->_maxHitPoints - this->_hitPoints
+		<< "> hit points!" << std::endl;
+        std::cout << this->_name << ": <Can I just say... yeehaw!>" << std::endl;
         this->_hitPoints = _maxHitPoints;
     }
     else {
-		std::cout << "FR4G-TP <" << this->_name << "> repairs <" << amount << "> hit points!" << std::endl;
-        std::cout << this->_name << " <Sweet life juice!>" << std::endl;
+		std::cout << "FR4G-TP (ScavTrap) <" << this->_name << "> repairs <" << amount << "> hit points!" << std::endl;
+        std::cout << this->_name << ": <Now I will dominate!>" << std::endl;
         this->_hitPoints = this->_hitPoints + amount;
     }
 };
 
-int FragTrap::vaulthunter_dot_exe(std::string const & target) {
-	int energy = this->_energyPoints - RANDOM_ENERGY_COST;
-    std::string list[] = {"Dance to death", "Hit with head", "Unfair kick", "Throw your arm to the enemy", "Stunn with ultrasound"};
-    std::string frase[] = {" <How about dancing tango tonight? Oh, no, you don't gave legs now.>", " <I feel like crushing some brains!>",
-                           " <I am NOT sorry!>", " <It seems I lost something, hand it for a minute!>",
-                           " <I can crash a glass with this sound, look! Oh, sorry, you can't hear anything.>"};
-    int dmg[] = {20, 10, 50, 5, 1};
-    int attack = std::rand() % 5;
-	if (energy < 0) {
-		this->_energyPoints = 0;
-		std::cout << "FR4G-TP <" << this->_name << "> is out of energy" << std::endl;
-		std::cout << this->_name << " <I'm too depressed to do this, let me die quietly!!!>" << std::endl;
-	}
-	else {
-		this->_energyPoints = energy;
-		std::cout << "FR4G-TP <" << this->_name << "> attacks " << target << " with <" << list[attack] << ">, causing <"
-				  << dmg[attack] << "> points of damage!" << std::endl;
-		std::cout << this->_name << frase[attack] << std::endl;
-	}
-	return dmg[attack];
+void ScavTrap::challengeNewcomer(std::string const & target) {
+	int challenge = std::rand() % 5;
+    std::string list[] = {"<Shoot everything around standing on the head>", "<Dance kalinka-malinka dance>",
+						  "<Scare your capitan, wearing a clown mask>", "<Throw a bomb into sauna>",
+						  "<Steal someones' pants>"};
+	std::cout << this->_name << ": " << "Hello, little newby " << target <<
+	"! To become a real FR4G-TP, you need to pass my test. Your task is: " << list[challenge] << std::endl;
 };

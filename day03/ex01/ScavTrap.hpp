@@ -1,19 +1,19 @@
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
-# define MAX_HIT_P 100
-# define MAX_E_P 100
+# define MAX_S_HIT_P 100
+# define MAX_S_ENERGY_P 50
 
-class FragTrap {
+class ScavTrap {
 
 private:
     std::string _name;
     int _hitPoints;
-    const static int _maxHitPoints = MAX_HIT_P;
+    const static int _maxHitPoints = MAX_S_HIT_P;
     int _energyPoints;
-    const static int _maxEnergyPoints = MAX_E_P;
+    const static int _maxEnergyPoints = MAX_S_ENERGY_P;
     int _level;
     int _meleeDamage;
     int _rangeDamage;
@@ -26,11 +26,11 @@ private:
     void _stunningWithUltrasound(std::string const & target);
 
 public:
-    FragTrap(std::string const &name);
-    FragTrap(FragTrap &trap);
-    ~FragTrap();
+    ScavTrap(std::string const &name);
+    ScavTrap(ScavTrap &trap);
+    ~ScavTrap();
 
-    void operator=(const FragTrap &F);
+    void operator=(const ScavTrap &F);
 
     std::string getName() const;
     int getHitPoints() const;
@@ -52,7 +52,7 @@ public:
     void meleeAttack(std::string const & target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
-    int vaulthunter_dot_exe(std::string const & target);
+    void challengeNewcomer(std::string const & target);
 };
 
 #endif

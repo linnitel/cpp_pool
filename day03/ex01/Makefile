@@ -2,11 +2,11 @@ NAME = frag_trap
 
 CC = clang++
 
-SRCS = main.cpp FragTrap.cpp
+SRCS = main.cpp FragTrap.cpp ScavTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = FragTrap.hpp
+HEADERS = FragTrap.hpp ScavTrap.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 

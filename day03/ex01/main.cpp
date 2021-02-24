@@ -1,12 +1,15 @@
 
 #include <iostream>
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main( void ) {
 	int dmg;
     FragTrap tony("Tony");
     FragTrap fred("Fred");
+    FragTrap fred2(fred);
     FragTrap tony2("Tony2");
+    ScavTrap daddy("DADDY");
 
     tony.rangedAttack(fred.getName());
     fred.takeDamage(tony.getRangeDamage());
@@ -19,6 +22,15 @@ int main( void ) {
     dmg = fred.vaulthunter_dot_exe(tony.getName());
 	tony.takeDamage(dmg);
 	std::cout << tony.getName() << ": <And even this trick doesn't work on me!>" << std::endl;
-	tony.beRepaired(MAX_HIT_P - tony.getHitPoints());
-    return 0;
+	tony.beRepaired(MAX_F_HIT_P - tony.getHitPoints());
+	std::cout << daddy.getName() << ": <Hey, newbies, what do you think you are doing here?! You are supposed to train! I will teach you some robot manners>" << std::endl;
+	daddy.meleeAttack(tony.getName());
+	daddy.rangedAttack(fred.getName());
+	ScavTrap dummy(daddy);
+	dummy.setName("Dummy");
+	std::cout << daddy.getName() << ": <No, this is not! Hey you, " << dummy.getName() << ", do you sink mocking me is funny?!>" << std::endl;
+	daddy.challengeNewcomer(dummy.getName());
+	dummy.beRepaired(1);
+	std::cout << daddy.getName() << ": <Oh no, what do you think you are doing?! You just failed the task and we all will be deactivated!!!>" << std::endl;
+	return 0;
 }

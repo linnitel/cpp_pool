@@ -3,17 +3,17 @@
 # define FRAGTRAP_HPP
 
 # include <iostream>
-# define MAX_HIT_P 100
-# define MAX_E_P 100
+# define MAX_F_HIT_P 100
+# define MAX_F_ENERGY_P 100
 
 class FragTrap {
 
 private:
     std::string _name;
     int _hitPoints;
-    const static int _maxHitPoints = MAX_HIT_P;
+    const static int _maxHitPoints = MAX_F_HIT_P;
     int _energyPoints;
-    const static int _maxEnergyPoints = MAX_E_P;
+    const static int _maxEnergyPoints = MAX_F_ENERGY_P;
     int _level;
     int _meleeDamage;
     int _rangeDamage;
