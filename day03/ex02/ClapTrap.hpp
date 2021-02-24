@@ -1,12 +1,12 @@
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 
-class FragTrap {
+class ClapTrap {
 
-private:
+protected:
     std::string _name;
     int _hitPoints;
     int _maxHitPoints;
@@ -18,16 +18,18 @@ private:
     int _armorDamageReduction;
 
 public:
-    FragTrap(std::string const &name);
-    FragTrap(FragTrap &trap);
-    ~FragTrap();
+    ClapTrap(std::string const &name);
+	ClapTrap(std::string const &name, int hitP, int maxHit, int energy, int maxEnergy,
+	int level, int meleeDmg, int rangeDmg, int armor);
+    ClapTrap(ClapTrap &trap);
+    virtual ~ClapTrap();
 
-    void operator=(const FragTrap &F);
+    void operator=(const ClapTrap &C);
 
     std::string getName() const;
     int getHitPoints() const;
 	int getMaxHitPoints() const;
-    int getEnergyPoints() const;
+	int getEnergyPoints() const;
 	int getMaxEnergyPoints() const;
     int getLevel() const;
     int getMeleeDamage() const;
@@ -37,7 +39,7 @@ public:
     void setName(std::string const &name);
     void setHitPoints(int const &hit);
 	void setMaxHitPoints(int const &hit);
-    void setEnergyPoints(int const &energy);
+	void setEnergyPoints(int const &energy);
 	void setMaxEnergyPoints(int const &energy);
     void setLevel(int const &level);
     void setMeleeDamage(int const &melee);
@@ -48,7 +50,6 @@ public:
     void meleeAttack(std::string const & target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
-    int vaulthunter_dot_exe(std::string const & target);
 };
 
 #endif
