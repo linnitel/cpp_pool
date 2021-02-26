@@ -1,12 +1,12 @@
-NAME = clap_trap
+NAME = ninja_trap
 
 CC = clang++
 
-SRCS = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp
+SRCS = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp NinjaTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = FragTrap.hpp ScavTrap.hpp ClapTrap.hpp
+HEADERS = FragTrap.hpp ScavTrap.hpp ClapTrap.hpp NinjaTrap.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 

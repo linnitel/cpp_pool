@@ -2,6 +2,8 @@
 #include <iostream>
 #include "FragTrap.hpp"
 #include "NinjaTrap.hpp"
+#include "ScavTrap.hpp"
+#include "SuperTrap.hpp"
 
 int main( void ) {
 	int dmg;
@@ -36,5 +38,9 @@ int main( void ) {
 	daddy.challengeNewcomer(dummy.getName());
 	dummy.beRepaired(1);
 	std::cout << daddy.getName() << ": <Oh no, what do you think you are doing?! You just failed the task and we all will be deactivated!!!>" << std::endl;
+	NinjaTrap ninja("Mysterious subject");
+    std::cout << ninja.getName() << ": <Beware of the chaos and mystery!!!>" << std::endl;
+    ninja.ninjaShoebox(fred);
+    ninja.ninjaShoebox(daddy);
 	return 0;
 }

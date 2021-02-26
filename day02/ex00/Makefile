@@ -1,12 +1,12 @@
-NAME = violence
+NAME = ex00
 
 CC = clang++
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp Fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = Weapon.hpp HumanA.hpp HumanB.hpp
+HEADERS = Fixed.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 

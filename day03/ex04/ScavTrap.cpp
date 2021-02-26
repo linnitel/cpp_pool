@@ -1,13 +1,13 @@
 
-#include "NinjaTrap.hpp"
+#include "ScavTrap.hpp"
 
-NinjaTrap::NinjaTrap(std::string const &name): ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0) {
+ScavTrap::ScavTrap(std::string const &name): ClapTrap(name, 100, 100, 100, 100, 1, 20, 15, 3) {
     std::cout << "Default constructor called" << std::endl;
-    std::cout << this->_name << ": <I am the terror that flaps in the night…!>" << std::endl;
+    std::cout << this->_name << ": <I am your nightmare, ScavTrap!!! What is that noise coming from? Are this my parts falling down?!>" << std::endl;
     std::srand(std::time(0));
 }
 
-NinjaTrap::NinjaTrap(NinjaTrap &trap): ClapTrap(trap.getName(),
+ScavTrap::ScavTrap(ScavTrap &trap): ClapTrap(trap.getName(),
 											  trap.getHitPoints(), trap.getMaxHitPoints(),
 											  trap.getEnergyPoints(), trap.getMaxEnergyPoints(),
 											  trap.getLevel(), trap.getMeleeDamage(), trap.getRangeDamage(),
@@ -16,12 +16,12 @@ NinjaTrap::NinjaTrap(NinjaTrap &trap): ClapTrap(trap.getName(),
     std::cout << this->_name << ": <What do we have here? AAAAAAAA, I got crazy, I see myself!!!!!>" << std::endl;
 }
 
-NinjaTrap::~NinjaTrap() {
+ScavTrap::~ScavTrap() {
     std::cout << "Default destructor called" << std::endl;
     std::cout << this->_name << ": <Please don't kill me, I can dance!!!>" << std::endl;
 }
 
-void NinjaTrap::operator=(const NinjaTrap &F) {
+void ScavTrap::operator=(const ScavTrap &F) {
     std::cout << "Assignation operator called" << std::endl;
     this->_name = F.getName();
     this->_hitPoints = F.getHitPoints();
@@ -32,20 +32,11 @@ void NinjaTrap::operator=(const NinjaTrap &F) {
     this->_armorDamageReduction = F.getArmorDamageReduction();
 }
 
-void NinjaTrap::ninjaShoebox(NinjaTrap &trap) {
-    std::cout << this->_name << ": <I am Ninja, you are Ninja, let's dance to death!>" << std::endl;
-    trap.takeDamage(trap.getHitPoints());
-    this->takeDamage(this->_hitPoints);
-}
-
-void NinjaTrap::ninjaShoebox(FragTrap &trap) {
-    std::cout << this->_name << ": <Boo! Are you scared? Oh no!!!>" << std::endl;
-    trap.takeDamage(1);
-    this->takeDamage(5);
-}
-
-void NinjaTrap::ninjaShoebox(ScavTrap &trap) {
-    std::cout << this->_name << ": <I love you, marry me!!! You can't say no, so it's yes, WEEEHAAA!!!>" << std::endl;
-    trap.takeDamage(50);
-    this->beRepaired(50);
+void ScavTrap::challengeNewcomer(std::string const & target) {
+	int challenge = std::rand() % 5;
+    std::string list[] = {"<Shoot everything around standing on the head>", "<Dance kalinka-malinka dance>",
+						  "<Scare your capitan, wearing a clown mask>", "<Throw a bomb into sauna>",
+						  "<Steal someones' pants>"};
+	std::cout << this->_name << ": " << "Hello, little newby " << target <<
+	"! To become a real FR4G-TP, you need to pass my test. Your task is: " << list[challenge] << std::endl;
 }

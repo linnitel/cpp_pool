@@ -1,20 +1,19 @@
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "NinjaTrap.hpp"
 
-class ScavTrap: virtual public ClapTrap {
+class SuperTrap: virtual public FragTrap, virtual public NinjaTrap {
 
 public:
-    ScavTrap(std::string const &name);
-    ScavTrap(ScavTrap &trap);
-    virtual ~ScavTrap();
+    SuperTrap(std::string const &name);
+    SuperTrap(SuperTrap &trap);
+    virtual ~SuperTrap();
 
-    void operator=(const ScavTrap &F);
-
-    void challengeNewcomer(std::string const & target);
+    void operator=(const SuperTrap &F);
 };
 
 #endif

@@ -1,27 +1,40 @@
 
-#include "ScavTrap.hpp"
+#include "SuperTrap.hpp"
 
-ScavTrap::ScavTrap(std::string const &name): ClapTrap(name, 100, 100, 100, 100, 1, 20, 15, 3) {
+SuperTrap::SuperTrap(std::string const &name): ClapTrap(name), FragTrap(name), NinjaTrap(name) {
     std::cout << "Default constructor called" << std::endl;
-    std::cout << this->_name << ": <I am your nightmare, ScavTrap!!! What is that noise coming from? Are this my parts falling down?!>" << std::endl;
+    std::cout << this->_name << ": <I am Trap, SuperTrap!>" << std::endl;
+    this->_hitPoints = this->FragTrap::getHitPoints();
+    this->_maxHitPoints = this->FragTrap::getMaxHitPoints();
+    this->_energyPoints = this->NinjaTrap::getEnergyPoints();
+    this->_maxEnergyPoints = this->NinjaTrap::getMaxEnergyPoints();
+    this->_level = 1;
+    this->_meleeDamage = this->NinjaTrap::getMeleeDamage();
+    this->_rangeDamage = this->FragTrap::getRangeDamage();
+    this->_armorDamageReduction = this->FragTrap::getArmorDamageReduction();
     std::srand(std::time(0));
 }
 
-ScavTrap::ScavTrap(ScavTrap &trap): ClapTrap(trap.getName(),
-											  trap.getHitPoints(), trap.getMaxHitPoints(),
-											  trap.getEnergyPoints(), trap.getMaxEnergyPoints(),
-											  trap.getLevel(), trap.getMeleeDamage(), trap.getRangeDamage(),
-											  trap.getArmorDamageReduction()) {
+SuperTrap::SuperTrap(SuperTrap &trap): ClapTrap(trap.getName()), FragTrap(trap.getName()), NinjaTrap(trap.getName()) {
     std::cout << "Copy constructor called" << std::endl;
+    this->_hitPoints = trap.getHitPoints();
+    this->_maxHitPoints = trap.getMaxHitPoints();
+    this->_energyPoints = trap.getEnergyPoints();
+    this->_maxEnergyPoints = trap.getMaxEnergyPoints();
+    this->_level = trap.getLevel();
+    this->_meleeDamage = trap.getMeleeDamage();
+    this->_rangeDamage = trap.getRangeDamage();
+    this->_armorDamageReduction = trap.getArmorDamageReduction();
     std::cout << this->_name << ": <What do we have here? AAAAAAAA, I got crazy, I see myself!!!!!>" << std::endl;
+    std::srand(std::time(0));
 }
 
-ScavTrap::~ScavTrap() {
+SuperTrap::~SuperTrap() {
     std::cout << "Default destructor called" << std::endl;
     std::cout << this->_name << ": <Please don't kill me, I can dance!!!>" << std::endl;
 }
 
-void ScavTrap::operator=(const ScavTrap &F) {
+void SuperTrap::operator=(const SuperTrap &F) {
     std::cout << "Assignation operator called" << std::endl;
     this->_name = F.getName();
     this->_hitPoints = F.getHitPoints();
@@ -30,13 +43,4 @@ void ScavTrap::operator=(const ScavTrap &F) {
     this->_meleeDamage = F.getMeleeDamage();
     this->_rangeDamage = F.getRangeDamage();
     this->_armorDamageReduction = F.getArmorDamageReduction();
-}
-
-void ScavTrap::challengeNewcomer(std::string const & target) {
-	int challenge = std::rand() % 5;
-    std::string list[] = {"<Shoot everything around standing on the head>", "<Dance kalinka-malinka dance>",
-						  "<Scare your capitan, wearing a clown mask>", "<Throw a bomb into sauna>",
-						  "<Steal someones' pants>"};
-	std::cout << this->_name << ": " << "Hello, little newby " << target <<
-	"! To become a real FR4G-TP, you need to pass my test. Your task is: " << list[challenge] << std::endl;
 }
