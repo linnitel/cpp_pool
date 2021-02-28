@@ -3,12 +3,15 @@
 # define SORCERER_HPP
 
 # include <iostream>
+#include "Victim.hpp"
+#include "Peon.hpp"
 
 class Sorcerer {
 
 private:
     std::string _name;
     std::string _title;
+    Sorcerer();
 
 public:
     Sorcerer(std::string const &name, std::string const &title);
@@ -22,6 +25,8 @@ public:
 
     void setName(std::string const &name);
     void setTitle(std::string const &title);
+
+    void polymorph(Victim const &victim);
 
 };
 
