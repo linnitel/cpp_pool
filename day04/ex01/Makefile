@@ -1,12 +1,12 @@
-NAME = violence
+NAME = world_on_fire
 
 CC = clang++
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp AWeapon.cpp PowerFist.cpp PlasmaRifle.cpp SuperMutant.cpp RadScorpion.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = Weapon.hpp HumanA.hpp HumanB.hpp
+HEADERS = AWeapon.hpp PowerFist.hpp PlasmaRifle.hpp SuperMutant.hpp RadScorpion.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 
