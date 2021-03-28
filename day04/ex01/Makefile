@@ -2,11 +2,11 @@ NAME = world_on_fire
 
 CC = clang++
 
-SRCS = main.cpp AWeapon.cpp PowerFist.cpp PlasmaRifle.cpp SuperMutant.cpp RadScorpion.cpp
+SRCS = main.cpp AWeapon.cpp PowerFist.cpp PlasmaRifle.cpp WirtsLeg.cpp Enemy.cpp SuperMutant.cpp RadScorpion.cpp EvilBabushka.cpp Character.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = AWeapon.hpp PowerFist.hpp PlasmaRifle.hpp SuperMutant.hpp RadScorpion.hpp
+HEADERS = AWeapon.hpp PowerFist.hpp PlasmaRifle.hpp WirtsLeg.hpp Enemy.cpp SuperMutant.hpp RadScorpion.hpp EvilBabushka.hpp Character.hpp
 
 FLAGS = -Wall -Werror -Wextra -g -std=c++98
 

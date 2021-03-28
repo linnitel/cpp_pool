@@ -4,6 +4,7 @@
 
 # include "Contact.class.hpp"
 # include <iostream>
+# include <iomanip>
 # include <string>
 # define CONTACT_SIZE 8
 # define COLUMN_SIZE 10

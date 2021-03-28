@@ -12,10 +12,10 @@ private:
 
 public:
     Peon(std::string const &name);
-    Peon(Peon &trap);
+    Peon(Peon const &peon);
     virtual ~Peon();
 
-    void operator=(const Peon &C);
+    void operator=(const Peon &P);
 
     void getPolymorphed() const;
 };

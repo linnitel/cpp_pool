@@ -5,9 +5,10 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap: virtual public ClapTrap {
+class ScavTrap: public ClapTrap {
 
 public:
+	ScavTrap();
     ScavTrap(std::string const &name);
     ScavTrap(ScavTrap &trap);
     virtual ~ScavTrap();

@@ -9,8 +9,12 @@ SuperMutant::~SuperMutant() {
 	std::cout << "Aaargh..." << std::endl;
 }
 
-virtual void SuperMutant::takeDamage(int dmg) {
-	if (dmg > 0) {
-		this->_hp -= dmg - DMG_REDUCE;
+SuperMutant::SuperMutant(SuperMutant &super) {
+	*this = super;
+}
+
+void SuperMutant::takeDamage(int dmg) {
+	if (dmg > this->_dmgReduce) {
+		Enemy::takeDamage(dmg - this->_dmgReduce);
 	}
 }

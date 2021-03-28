@@ -14,7 +14,7 @@ protected:
 
 public:
     Victim(std::string const &name);
-    Victim(Victim &trap);
+    Victim(Victim &victim);
     virtual ~Victim();
 
     void operator=(const Victim &V);

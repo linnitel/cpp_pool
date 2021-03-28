@@ -24,9 +24,9 @@ void Victim::operator=(const Victim &V) {
 }
 
 std::ostream & operator<<(std::ostream & os, const Victim &V) {
-    os << "I am " << V.getName() << " and I like otters!" << std::endl;;
+    os << "I am " << V.getName() << " and I like otters!" << std::endl;
     return os;
-};
+}
 
 std::string Victim::getName() const {
     return (this->_name);

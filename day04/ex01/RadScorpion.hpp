@@ -4,14 +4,15 @@
 
 # include <iostream>
 # include "Enemy.hpp"
-# define DMG_REDUCE 3
 
-class RadScorpion : virtual public Enemy {
+class RadScorpion : public Enemy {
 
 public:
 	RadScorpion();
+	RadScorpion(RadScorpion const &rad);
     ~RadScorpion();
 
+	void takeDamage(int dmg);
 };
 
 #endif

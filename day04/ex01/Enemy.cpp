@@ -5,13 +5,16 @@ Enemy::Enemy(): _type("Simple enemy"), _hp(10) {
 }
 
 Enemy::Enemy(int hp, std::string const & type): _type(type), _hp(hp) {
-	std::cout << "The enemy " << this->_type << " approaches!" << std::endl;
 }
 
 Enemy::~Enemy() {
 }
 
-std::string const &Enemy::getType() {
+Enemy::Enemy(Enemy &enemy) {
+	*this = enemy;
+}
+
+std::string const &Enemy::getType() const {
 	return (this->_type);
 }
 
@@ -20,12 +23,11 @@ int Enemy::getHP() const {
 }
 
 void Enemy::operator=(const Enemy &E) {
-	std::cout << "Assignation operator called" << std::endl;
-	this->_type = E.getName();
-	this->_hp = A.getHP();
+	this->_type = E.getType();
+	this->_hp = E.getHP();
 }
 
-virtual void Enemy::takeDamage(int dmg) {
+void Enemy::takeDamage(int dmg) {
 	if (dmg > 0) {
 		this->_hp -= dmg;
 	}

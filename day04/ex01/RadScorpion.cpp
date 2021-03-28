@@ -8,3 +8,11 @@ RadScorpion::RadScorpion(): Enemy(80, "RadScorpion") {
 RadScorpion::~RadScorpion() {
 	std::cout <<  "* SPROTCH *" << std::endl;
 }
+
+RadScorpion::RadScorpion(RadScorpion &rad) {
+	*this = rad;
+}
+
+void RadScorpion::takeDamage(int dmg) {
+	Enemy::takeDamage(dmg);
+}

@@ -10,7 +10,8 @@ myPhoneBook::~myPhoneBook() {
 void myPhoneBook::addPerson(){
     if (_contact_num < CONTACT_SIZE) {
         std::string contct[NUM_COLUMN];
-        std::cout << "||| Please add new contact data                 |||" << std::endl;
+        std::cout << std::setw (50);
+        std::cout << "||| Please add new contact data               |||" << std::endl;
         for (int i = 0; i < NUM_COLUMN; i++) {
             std::cout << this->_person[_contact_num].getContactName(i) << ": ";
             std::cin >> contct[i];
@@ -24,19 +25,20 @@ void myPhoneBook::addPerson(){
 }
 
 void myPhoneBook::_printAll() const{
-    int len;
+    int print;
     std::cout << "—————————— —————————— —————————— ——————————" << std::endl;
     for (int i = 0; i < _contact_num; i++) {
-        std::cout.width(COLUMN_SIZE);
+        std::cout << std::setw(COLUMN_SIZE);
         std::cout << i << "|";
         for (int j = 0; j < NUM_COLUMN_PRINT; j++) {
-            std::cout << this->_person[i].getContact(j).substr(0,COLUMN_SIZE - 1);
-            if ((len = this->_person[i].getContact(j).length()) < COLUMN_SIZE - 1) {
-                for (int k = len; k < COLUMN_SIZE; k++)
-                    std::cout << ' ';
-            }
+            if (this->_person[i].getContact(j).length() <= COLUMN_SIZE - 1)
+            	print = COLUMN_SIZE;
             else
-                std::cout << '.';
+            	print = COLUMN_SIZE - 1;
+			std::cout << std::setw(print);
+			std::cout << this->_person[i].getContact(j).substr(0,COLUMN_SIZE - 1);
+			if (print < COLUMN_SIZE)
+            	std::cout << '.';
             std::cout << "|";
         }
         std::cout << std::endl;

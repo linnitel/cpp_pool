@@ -4,6 +4,11 @@
 
 # include <iostream>
 
+# define RESET		"\x1B[0m"
+# define GREEN		"\x1B[32m"
+# define MAGENTA	"\x1B[35m"
+# define CYAN		"\x1B[36m"
+
 class AWeapon {
 
 private:
@@ -14,15 +19,16 @@ private:
 
 public:
 	AWeapon(std::string const &name, int apcost, int damage);
+	AWeapon(AWeapon const &AW);
     virtual ~AWeapon();
 
 	void operator=(const AWeapon &A);
 
 	std::string const &getName() const;
-	int getAPCost() const;
-	int getDamage() const;
+	int const &getAPCost() const;
+	int const &getDamage() const;
 
-	void attack() const = 0;
+	virtual void attack() const = 0;
 
 };
 

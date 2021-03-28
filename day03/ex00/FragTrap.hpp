@@ -3,29 +3,32 @@
 # define FRAGTRAP_HPP
 
 # include <iostream>
-# define MAX_HIT_P 100
-# define MAX_E_P 100
+
+# define RANDOM_ENERGY_COST 25
+
+# define RESET		"\x1B[0m"
+# define GREEN		"\x1B[32m"
+# define MAGENTA	"\x1B[35m"
+# define CYAN		"\x1B[36m"
 
 class FragTrap {
 
 private:
     std::string _name;
-    int _hitPoints;
-    const static int _maxHitPoints = MAX_HIT_P;
-    int _energyPoints;
-    const static int _maxEnergyPoints = MAX_E_P;
-    int _level;
-    int _meleeDamage;
-    int _rangeDamage;
-    int _armorDamageReduction;
+    unsigned int _hitPoints;
+    unsigned int _maxHitPoints;
+    unsigned int _energyPoints;
+    unsigned int _maxEnergyPoints;
+    unsigned int _level;
+    unsigned int _meleeDamage;
+    unsigned int _rangeDamage;
+    unsigned int _armorDamageReduction;
 
-    void _danceToDeath(std::string const & target);
-    void _hitWithHead(std::string const & target);
-    void _unfairKick(std::string const & target);
-    void _throwYourArm(std::string const & target);
-    void _stunningWithUltrasound(std::string const & target);
+	unsigned int _speechReturn(unsigned int hp, unsigned int ret, const std::string textOne,
+							   const std::string textTwo, const std::string textThree);
 
 public:
+	FragTrap();
     FragTrap(std::string const &name);
     FragTrap(FragTrap &trap);
     ~FragTrap();
@@ -33,26 +36,30 @@ public:
     void operator=(const FragTrap &F);
 
     std::string getName() const;
-    int getHitPoints() const;
-    int getEnergyPoints() const;
-    int getLevel() const;
-    int getMeleeDamage() const;
-    int getRangeDamage() const;
-    int getArmorDamageReduction() const;
+    unsigned int getHitPoints() const;
+    unsigned int getEnergyPoints() const;
+	unsigned int getMaxHitPoints() const;
+	unsigned int getMaxEnergyPoints() const;
+    unsigned int getLevel() const;
+    unsigned int getMeleeDamage() const;
+    unsigned int getRangeDamage() const;
+    unsigned int getArmorDamageReduction() const;
 
     void setName(std::string const &name);
-    void setHitPoints(int const &hit);
-    void setEnergyPoints(int const &energy);
-    void setLevel(int const &level);
-    void setMeleeDamage(int const &melee);
-    void setRangeDamage(int const &range);
-    void setArmorDamageReduction(int const &armor);
+    void setHitPoints(unsigned int const &hit);
+    void setEnergyPoints(unsigned int const &energy);
+	void setMaxHitPoints(unsigned int const &maxHit);
+	void setMaxEnergyPoints(unsigned int const &energy);
+    void setLevel(unsigned int const &level);
+    void setMeleeDamage(unsigned int const &melee);
+    void setRangeDamage(unsigned int const &range);
+    void setArmorDamageReduction(unsigned int const &armor);
 
     void rangedAttack(std::string const & target);
     void meleeAttack(std::string const & target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
-    int vaulthunter_dot_exe(std::string const & target);
+    unsigned int vaulthunter_dot_exe(std::string const & target);
 };
 
 #endif

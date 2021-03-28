@@ -1,4 +1,4 @@
-NAME = frag_trap
+NAME = scav_trap
 
 CC = clang++
 

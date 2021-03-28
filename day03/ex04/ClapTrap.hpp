@@ -4,47 +4,57 @@
 
 # include <iostream>
 
+# define RESET  "\x1B[0m"
+# define GREEN  "\x1B[32m"
+# define MAGENTA  "\x1B[35m"
+# define CYAN  "\x1B[36m"
+
 class ClapTrap {
 
 protected:
     std::string _name;
-    int _hitPoints;
-    int _maxHitPoints;
-    int _energyPoints;
-    int _maxEnergyPoints;
-    int _level;
-    int _meleeDamage;
-    int _rangeDamage;
-    int _armorDamageReduction;
+    unsigned int _hitPoints;
+    unsigned int _maxHitPoints;
+    unsigned int _energyPoints;
+    unsigned int _maxEnergyPoints;
+    unsigned int _level;
+    unsigned int _meleeDamage;
+    unsigned int _rangeDamage;
+    unsigned int _armorDamageReduction;
+
+	unsigned int _speechReturn(unsigned int hp, unsigned int ret, const std::string textOne,
+							   const std::string textTwo, const std::string textThree);
 
 public:
+	ClapTrap();
     ClapTrap(std::string const &name);
-	ClapTrap(std::string const &name, int hitP, int maxHit, int energy, int maxEnergy,
-	int level, int meleeDmg, int rangeDmg, int armor);
+	ClapTrap(std::string const &name, unsigned int const &hitP, unsigned int const &maxHit, unsigned int const &energy,
+		  unsigned int const &maxEnergy, unsigned int const &level, unsigned int const &meleeDmg,
+		  unsigned int const &rangeDmg, unsigned int const &armor);
     ClapTrap(ClapTrap &trap);
     virtual ~ClapTrap();
 
     void operator=(const ClapTrap &C);
 
-    std::string getName() const;
-    int getHitPoints() const;
-	int getMaxHitPoints() const;
-	int getEnergyPoints() const;
-	int getMaxEnergyPoints() const;
-    int getLevel() const;
-    int getMeleeDamage() const;
-    int getRangeDamage() const;
-    int getArmorDamageReduction() const;
+	std::string getName() const;
+	unsigned int getHitPoints() const;
+	unsigned int getMaxHitPoints() const;
+	unsigned int getEnergyPoints() const;
+	unsigned int getMaxEnergyPoints() const;
+	unsigned int getLevel() const;
+	unsigned int getMeleeDamage() const;
+	unsigned int getRangeDamage() const;
+	unsigned int getArmorDamageReduction() const;
 
-    void setName(std::string const &name);
-    void setHitPoints(int const &hit);
-	void setMaxHitPoints(int const &hit);
-	void setEnergyPoints(int const &energy);
-	void setMaxEnergyPoints(int const &energy);
-    void setLevel(int const &level);
-    void setMeleeDamage(int const &melee);
-    void setRangeDamage(int const &range);
-    void setArmorDamageReduction(int const &armor);
+	void setName(std::string const &name);
+	void setHitPoints(unsigned int const &hit);
+	void setMaxHitPoints(unsigned int const &maxHit);
+	void setEnergyPoints(unsigned int const &energy);
+	void setMaxEnergyPoints(unsigned int const &maxEnergy);
+	void setLevel(unsigned int const &level);
+	void setMeleeDamage(unsigned int const &melee);
+	void setRangeDamage(unsigned int const &range);
+	void setArmorDamageReduction(unsigned int const &armor);
 
     void rangedAttack(std::string const & target);
     void meleeAttack(std::string const & target);

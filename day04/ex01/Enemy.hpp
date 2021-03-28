@@ -4,6 +4,11 @@
 
 # include <iostream>
 
+# define RESET		"\x1B[0m"
+# define GREEN		"\x1B[32m"
+# define MAGENTA	"\x1B[35m"
+# define CYAN		"\x1B[36m"
+
 class Enemy {
 
 private:
@@ -13,6 +18,7 @@ private:
 
 public:
 	Enemy(int hp, std::string const & type);
+	Enemy(Enemy const &enemy);
     virtual ~Enemy();
 
 	void operator=(const Enemy &E);

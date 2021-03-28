@@ -4,33 +4,132 @@
 #include "ScavTrap.hpp"
 
 int main( void ) {
+	std::cout << GREEN << "/............PART 1. FRAGTRAP.........../" << RESET << std::endl;
+	std::cout << std::endl;
+	std::cout << MAGENTA << "/............Constructors.........../" << RESET << std::endl;
 	int dmg;
-    FragTrap tony("Tony");
-    FragTrap fred("Fred");
-    FragTrap fred2(fred);
-    FragTrap tony2("Tony2");
-    ScavTrap daddy("DADDY");
+	FragTrap tony("Tony");
+	FragTrap fred("Fred");
+	FragTrap tony2("Tony2");
 
-    tony.rangedAttack(fred.getName());
-    fred.takeDamage(tony.getRangeDamage());
-    while (tony.getHitPoints() != 0) {
+	std::cout << std::endl;
+	std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+	std::cout << fred.getName() << " has: " << fred.getHitPoints() << " HP" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << MAGENTA << "/............First blood.........../" << RESET << std::endl;
+	std::cout << tony.getName() << " attacks " << fred.getName() << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	tony.rangedAttack(fred.getName());
+	fred.takeDamage(tony.getRangeDamage());
+	std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+	std::cout << fred.getName() << " has: " << fred.getHitPoints() << " HP" << std::endl;
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << MAGENTA << "/............Series of attacks.........../" << RESET << std::endl;
+	while (tony.getHitPoints() != 0) {
+		std::cout << std::endl;
+		std::cout << std::endl;
+		std::cout << fred.getName() << " attacks " << tony.getName() << std::endl;
 		fred.meleeAttack(tony.getName());
 		tony.takeDamage(fred.getMeleeDamage());
+		std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
 	}
-    std::cout << tony.getName() << ": <Nice try! But you will not kill me, I will reborn!>" << std::endl;
-    tony = tony2;
-    dmg = fred.vaulthunter_dot_exe(tony.getName());
+	std::cout << fred.getName() << " attacks " << tony.getName() << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	fred.meleeAttack(tony.getName());
+	tony.takeDamage(fred.getMeleeDamage());
+	std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+	std::cout << GREEN << tony.getName() << CYAN << ": <Nice try! But you will not kill me, I will reborn!>" << RESET << std::endl;
+	tony = tony2;
+	for (int i = 0; i < 2; i++) {
+		std::cout << std::endl;
+		std::cout << std::endl;
+		std::cout << fred.getName() << " attacks " << tony.getName() << std::endl;
+		dmg = fred.vaulthunter_dot_exe(tony.getName());
+		tony.takeDamage(dmg);
+		std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+	}
+	std::cout << GREEN << tony.getName() << CYAN << ": <And even this trick doesn't work on me!>" << RESET << std::endl;
+	std::cout << tony.getName() << " repairs 2 HP " << std::endl;
+	tony.beRepaired(2);
+	std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << tony.getName() << " repairs 200 HP " << std::endl;
+	tony.beRepaired(200);
+	std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << GREEN << fred.getName() << CYAN << ": <I can still do it, see my powers!>" << RESET << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << MAGENTA << "/............Series of attacks.........../" << RESET << std::endl;
+	while (fred.getEnergyPoints() > 0) {
+		std::cout << std::endl;
+		std::cout << std::endl;
+		std::cout << fred.getName() << " attacks " << tony.getName() << std::endl;
+		dmg = fred.vaulthunter_dot_exe(tony.getName());
+		tony.takeDamage(dmg);
+		std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+		std::cout << fred.getName() << " has: " << fred.getEnergyPoints() << " energy" << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << fred.getName() << " attacks " << tony.getName() << std::endl;
+	dmg = fred.vaulthunter_dot_exe(tony.getName());
 	tony.takeDamage(dmg);
-	std::cout << tony.getName() << ": <And even this trick doesn't work on me!>" << std::endl;
-	tony.beRepaired(MAX_F_HIT_P - tony.getHitPoints());
-	std::cout << daddy.getName() << ": <Hey, newbies, what do you think you are doing here?! You are supposed to train! I will teach you some robot manners>" << std::endl;
+	std::cout << tony.getName() << " has: " << tony.getHitPoints() << " HP" << std::endl;
+	std::cout << fred.getName() << " has: " << fred.getEnergyPoints() << " energy" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << GREEN << "/............PART 2. SCAVTRAP.........../" << RESET << std::endl;
+	std::cout << std::endl;
+	std::cout << MAGENTA << "/............Constructor.........../" << RESET << std::endl;
+	ScavTrap daddy("DADDY");
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << GREEN << daddy.getName() << CYAN << ": <Hey, newbies, what do you think you are doing here?! You are supposed to train! I will teach you some robot manners>" << RESET << std::endl;
+	std::cout << daddy.getName() << " attacks " << tony.getName() << std::endl;
 	daddy.meleeAttack(tony.getName());
+	std::cout << daddy.getName() << " attacks " << fred.getName() << std::endl;
 	daddy.rangedAttack(fred.getName());
+	std::cout << fred.getName() << " attacks " << daddy.getName() << std::endl;
+	fred.meleeAttack(daddy.getName());
+	daddy.takeDamage(fred.getMeleeDamage());
+	std::cout << GREEN << daddy.getName() << CYAN << ": <Hey, this is unfair I will tell Mommy!>" << RESET << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << MAGENTA << "/............Constructor.........../" << RESET << std::endl;
 	ScavTrap dummy(daddy);
 	dummy.setName("Dummy");
-	std::cout << daddy.getName() << ": <No, this is not! Hey you, " << dummy.getName() << ", do you sink mocking me is funny?!>" << std::endl;
+	std::cout << dummy.getName() << " has " << dummy.getHitPoints() << " HP" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << GREEN << daddy.getName() << CYAN << ": <No, this is not! Hey you, " << dummy.getName() << ", do you think mocking me is funny?!>" << std::endl;
+	std::cout << daddy.getName() << " attacks with special attack " << dummy.getName() << std::endl;
 	daddy.challengeNewcomer(dummy.getName());
+	std::cout << daddy.getName() << " attacks with special attack " << fred.getName() << std::endl;
+	daddy.challengeNewcomer(fred.getName());
+	std::cout << daddy.getName() << " attacks with special attack " << tony.getName() << std::endl;
+	daddy.challengeNewcomer(tony2.getName());
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << tony2.getName() << " has: " << tony2.getHitPoints() << " HP" << std::endl;
+	std::cout << fred.getName() << " has: " << fred.getHitPoints() << " HP" << std::endl;
+	std::cout << dummy.getName() << " has: " << dummy.getHitPoints() << " HP" << std::endl;
+	std::cout << dummy.getName() << " repairs " << 1 << " HP" << std::endl;
 	dummy.beRepaired(1);
-	std::cout << daddy.getName() << ": <Oh no, what do you think you are doing?! You just failed the task and we all will be deactivated!!!>" << std::endl;
+	std::cout << dummy.getName() << " has " << dummy.getHitPoints() << " HP" << std::endl;
+	std::cout << fred.getName() << " repairs " << 10 << " HP" << std::endl;
+	fred.beRepaired(10);
+	std::cout << fred.getName() << " has " << fred.getHitPoints() << " HP" << std::endl;
+	std::cout << tony2.getName() << " repairs " << 10 << " HP" << std::endl;
+	tony2.beRepaired(1000);
+	std::cout << tony2.getName() << " has " << tony2.getHitPoints() << " HP" << std::endl;
+	std::cout << GREEN << daddy.getName() << CYAN << ": <Oh no, what do you think you are doing?! You just failed the task and we all will be deactivated!!!>" << RESET << std::endl;
 	return 0;
 }

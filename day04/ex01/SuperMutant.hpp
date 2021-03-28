@@ -4,16 +4,19 @@
 
 # include <iostream>
 # include "Enemy.hpp"
-# define DMG_REDUCE 3
 
-class SuperMutant : virtual public Enemy {
+
+class SuperMutant : public Enemy {
+
+private:
+	static const int _dmgReduce = 3;
 
 public:
 	SuperMutant();
+	SuperMutant(SuperMutant const &super);
     ~SuperMutant();
 
 	void takeDamage(int dmg);
-
 };
 
 #endif

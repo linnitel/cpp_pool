@@ -1,4 +1,4 @@
-NAME = clap_trap
+NAME = super_trap
 
 CC = clang++
 

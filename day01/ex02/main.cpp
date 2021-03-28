@@ -9,7 +9,6 @@ int main() {
     int t;
     ZombieEvent someZombies;
     Zombie *chumpZombies;
-    std::string type;
     std::string list[] = {"The Creature", "Zombie Boss", "Little Zombie", "Zombie Hound", "Stupid Zombie"};
     std::cout << "This is a room with a zombie. Be careful." << std::endl;
     Zombie zombieBob("Bob", "Little Zombie");
@@ -43,6 +42,6 @@ int main() {
         std::cout << "Shoot this one!" << std::endl;
         delete chumpZombies;
     }
-    std::cout << "All the zombies are dead! But wait!... Shoot!!!" << std::endl;
+    std::cout << "All the zombies are dead! But wait, what about Bob?... Shoot!!!" << std::endl;
     return (0);
 }

@@ -6,14 +6,18 @@
 # include "FragTrap.hpp"
 # include "NinjaTrap.hpp"
 
-class SuperTrap: virtual public FragTrap, virtual public NinjaTrap {
+class SuperTrap: public FragTrap, public NinjaTrap {
 
 public:
+	SuperTrap();
     SuperTrap(std::string const &name);
     SuperTrap(SuperTrap &trap);
     virtual ~SuperTrap();
 
-    void operator=(const SuperTrap &F);
+    void operator=(const SuperTrap &S);
+
+	void rangedAttack(std::string const & target);
+	void meleeAttack(std::string const & target);
 };
 
 #endif
