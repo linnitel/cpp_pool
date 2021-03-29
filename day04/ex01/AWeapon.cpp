@@ -10,7 +10,7 @@ AWeapon::AWeapon(std::string const &name, int apcost, int damage): _name(name), 
 AWeapon::~AWeapon() {
 }
 
-AWeapon::AWeapon(AWeapon &AW) {
+AWeapon::AWeapon(AWeapon const &AW) {
 	*this = AW;
 }
 

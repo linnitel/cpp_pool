@@ -3,6 +3,8 @@
 # define WIRTSLEG_HPP
 
 # include <iostream>
+
+class AWeapon;
 # include "AWeapon.hpp"
 
 class WirtsLeg : public AWeapon {
@@ -14,7 +16,7 @@ public:
 
 	void operator=(const WirtsLeg &P);
 
-	void attack() const;
+	virtual void attack() const;
 };
 
 #endif

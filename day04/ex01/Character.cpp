@@ -19,7 +19,7 @@ Character::Character(std::string const & name, int const &startAp, AWeapon *begi
 Character::~Character() {
 }
 
-Character::Character(Character &character) {
+Character::Character(Character const &character) {
 	*this = character;
 }
 

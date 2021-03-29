@@ -9,7 +9,7 @@ EvilBabushka::~EvilBabushka() {
 	std::cout <<  MAGENTA << "* Oh oh oh *" << RESET << std::endl;
 }
 
-EvilBabushka::EvilBabushka(EvilBabushka &baba) {
+EvilBabushka::EvilBabushka(EvilBabushka const &baba): Enemy(20, "Baba Nadya") {
 	*this = baba;
 }
 

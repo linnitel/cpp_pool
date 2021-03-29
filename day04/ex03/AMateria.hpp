@@ -3,7 +3,11 @@
 # define AMATERIA_HPP
 
 # include <iostream>
+
+class ICharacter;
 # include "ICharacter.hpp"
+
+# define XP_ICR 10
 
 class AMateria {
 

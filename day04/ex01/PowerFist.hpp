@@ -5,7 +5,7 @@
 # include <iostream>
 # include "AWeapon.hpp"
 
-class PowerFist : virtual public AWeapon {
+class PowerFist : public AWeapon {
 
 public:
 	PowerFist();
@@ -14,7 +14,7 @@ public:
 
 	void operator=(const PowerFist &P);
 
-	void attack() const;
+	virtual void attack() const;
 
 };
 

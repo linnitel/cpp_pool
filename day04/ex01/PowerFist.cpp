@@ -7,8 +7,7 @@ PowerFist::PowerFist(): AWeapon("Power Fist", 8, 50){
 PowerFist::~PowerFist() {
 }
 
-PowerFist::PowerFist(PowerFist &power) {
-	*this = power;
+PowerFist::PowerFist(PowerFist const &power): AWeapon(power){
 }
 
 void PowerFist::attack() const {

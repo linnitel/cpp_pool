@@ -10,7 +10,7 @@ Enemy::Enemy(int hp, std::string const & type): _type(type), _hp(hp) {
 Enemy::~Enemy() {
 }
 
-Enemy::Enemy(Enemy &enemy) {
+Enemy::Enemy(Enemy const &enemy) {
 	*this = enemy;
 }
 

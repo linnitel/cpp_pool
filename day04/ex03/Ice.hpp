@@ -14,7 +14,7 @@ public:
 
 	void operator=(const Ice &I);
 
-	virtual Ice* clone() const = 0;
+	virtual Ice* clone() const;
 	virtual void use(ICharacter& target);
 };
 

@@ -12,7 +12,7 @@ public:
 	RadScorpion(RadScorpion const &rad);
     ~RadScorpion();
 
-	void takeDamage(int dmg);
+	virtual void takeDamage(int dmg);
 };
 
 #endif

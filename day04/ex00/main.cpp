@@ -18,10 +18,15 @@ int main() {
 	std::cout << robert.getName() << ": <Hello, I am " << robert.getName() << "!" << std::endl;
 	std::cout << "What a wonderful day for polymorphing something!>" << std::endl;
 	Victim jane("Jane");
+	Victim *rob = new Peon("Rob");
+	std::cout << rob;
 	jane = jim;
 	std::cout << jane << jim;
 	Sorcerer edmund(robert);
 	Peon bob(joe);
 	std::cout << edmund << bob;
+	robert.polymorph(*rob);
+	edmund.polymorph(jane);
+	delete rob;
 	return 0;
 }

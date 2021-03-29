@@ -14,7 +14,7 @@ public:
 
 	void operator=(const Cure &C);
 
-	virtual Cure* clone() const = 0;
+	virtual Cure* clone() const;
 	virtual void use(ICharacter& target);
 };
 

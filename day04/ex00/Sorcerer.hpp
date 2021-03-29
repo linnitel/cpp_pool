@@ -26,7 +26,7 @@ public:
     void setName(std::string const &name);
     void setTitle(std::string const &title);
 
-    void polymorph(Victim const &victim);
+    virtual void polymorph(Victim const &victim);
 
 };
 

@@ -9,7 +9,7 @@ SuperMutant::~SuperMutant() {
 	std::cout << "Aaargh..." << std::endl;
 }
 
-SuperMutant::SuperMutant(SuperMutant &super) {
+SuperMutant::SuperMutant(SuperMutant const &super): Enemy(170, "Super Mutant") {
 	*this = super;
 }
 

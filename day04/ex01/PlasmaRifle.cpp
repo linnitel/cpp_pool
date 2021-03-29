@@ -7,8 +7,7 @@ PlasmaRifle::PlasmaRifle(): AWeapon("Plasma Rifle", 5, 21) {
 PlasmaRifle::~PlasmaRifle() {
 }
 
-PlasmaRifle::PlasmaRifle(PlasmaRifle &plasma) {
-	*this = plasma;
+PlasmaRifle::PlasmaRifle(const PlasmaRifle &plasma): AWeapon(plasma) {
 }
 
 void PlasmaRifle::attack() const {

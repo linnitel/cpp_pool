@@ -15,7 +15,7 @@ AMateria::AMateria(const AMateria &materia) {
 }
 
 void AMateria::operator=(const AMateria &AM) {
-	this->_xp = AM.getXP();
+	this->_xp = AM._xp;
 }
 
 unsigned int AMateria::getXP() const {
@@ -28,5 +28,5 @@ std::string const &AMateria::getType() const {
 
 void AMateria::use(ICharacter &target) {
 	(void)target;
-	this->_xp++;
+	this->_xp += XP_ICR;
 }

@@ -3,7 +3,11 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
+
+class AMateria;
 # include "AMateria.hpp"
+
+# define MAX_MATERIA 4
 
 class ICharacter {
 

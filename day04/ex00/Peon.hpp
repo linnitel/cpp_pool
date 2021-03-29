@@ -5,7 +5,7 @@
 # include <iostream>
 # include "Victim.hpp"
 
-class Peon : virtual public Victim {
+class Peon : public Victim {
 
 private:
     Peon();

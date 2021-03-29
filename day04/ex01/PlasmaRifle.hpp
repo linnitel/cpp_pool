@@ -9,12 +9,12 @@ class PlasmaRifle : virtual public AWeapon {
 
 public:
 	PlasmaRifle();
-	PlasmaRifle(PlasmaRifle const &plasma);
+	PlasmaRifle(const PlasmaRifle &plasma);
     virtual ~PlasmaRifle();
 
 	void operator=(const PlasmaRifle &P);
 
-	void attack() const;
+	virtual void attack() const;
 
 };
 

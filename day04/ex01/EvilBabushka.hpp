@@ -13,9 +13,9 @@ private:
 public:
 	EvilBabushka();
 	EvilBabushka(EvilBabushka const &baba);
-    ~EvilBabushka();
+    virtual ~EvilBabushka();
 
-	void takeDamage(int dmg);
+	virtual void takeDamage(int dmg);
 };
 
 #endif

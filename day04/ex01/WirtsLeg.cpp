@@ -7,8 +7,7 @@ WirtsLeg::WirtsLeg(): AWeapon("Wirt's Leg", 20, 5) {
 WirtsLeg::~WirtsLeg() {
 }
 
-WirtsLeg::WirtsLeg(WirtsLeg &leg) {
-	*this = leg;
+WirtsLeg::WirtsLeg(WirtsLeg const &leg): AWeapon(leg) {
 }
 
 void WirtsLeg::attack() const {

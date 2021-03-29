@@ -16,7 +16,7 @@ public:
 	SuperMutant(SuperMutant const &super);
     ~SuperMutant();
 
-	void takeDamage(int dmg);
+	virtual void takeDamage(int dmg);
 };
 
 #endif

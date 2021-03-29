@@ -8,11 +8,16 @@
 class MateriaSource: public IMateriaSource {
 
 private:
-	AMateria* _materia[MAX_MATERIA];
+	AMateria* _source[MAX_MATERIA];
 
 public:
+	MateriaSource();
+	MateriaSource(MateriaSource const &materia);
 	virtual ~MateriaSource();
-	virtual void learnMateria(AMateria*);
+
+	void operator=(const MateriaSource &MS);
+
+	virtual void learnMateria(AMateria *materia);
 	virtual AMateria* createMateria(std::string const & type);
 };
 
