@@ -76,6 +76,7 @@ int Squad::push(ISpaceMarine* marine) {
 		}
 		this->_squad[this->_count] = marine;
 		this->_count++;
+		delete temp;
 	}
 	return this->_count;
 }

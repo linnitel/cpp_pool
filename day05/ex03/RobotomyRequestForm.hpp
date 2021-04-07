@@ -12,13 +12,14 @@ private:
 	std::string _target;
 	RobotomyRequestForm();
 	void operator=(const RobotomyRequestForm &RRF);
+	RobotomyRequestForm(RobotomyRequestForm const &form);
 
 public:
 	RobotomyRequestForm(std::string const &target);
-	RobotomyRequestForm(RobotomyRequestForm const &form);
 	virtual ~RobotomyRequestForm();
 
 	std::string getTarget() const;
+	void setTarget(std::string const &target);
 
 	virtual void executeAction() const;
 };

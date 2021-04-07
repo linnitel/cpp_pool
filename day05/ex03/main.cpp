@@ -6,6 +6,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -45,9 +46,10 @@ int main()
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
-	AForm *B12 = new ShrubberyCreationForm("field");
+	Intern someIntern;
+	AForm *B12 = someIntern.makeForm("shrubbery creation", "field");
 	AForm *C12 = B12;
-	AForm *D45 = new PresidentialPardonForm("Alex");
+	AForm *D45 = someIntern.makeForm("Presidential Pardon", "Alex");
 	try {
 		norman.signForm(*B12);
 		std::cout << *B12 << std::endl;
@@ -70,7 +72,7 @@ int main()
 	boris.downGrade();
 	std::cout << boris;
 	boris.executeForm(*B12);
-	AForm *B200 = new RobotomyRequestForm("Andrew");
+	AForm *B200 = someIntern.makeForm("Robotomy request", "Andrew");
 	std::cout << *B200;
 	try {
 		boris.executeForm(*B200);
@@ -82,5 +84,7 @@ int main()
 	boris.executeForm(*B200);
 	boris.signForm(*D45);
 	boris.executeForm(*D45);
+	AForm *Z00 = someIntern.makeForm("Some request", "Pababam");
+	(void)Z00;
 	return 0;
 }

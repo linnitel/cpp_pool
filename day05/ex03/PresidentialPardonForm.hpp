@@ -12,14 +12,15 @@ class PresidentialPardonForm: public AForm  {
 private:
 	std::string _target;
 	PresidentialPardonForm();
+	PresidentialPardonForm(PresidentialPardonForm const &form);
 	void operator=(const PresidentialPardonForm &PPF);
 
 public:
 	PresidentialPardonForm(std::string const &target);
-	PresidentialPardonForm(PresidentialPardonForm const &form);
 	virtual ~PresidentialPardonForm();
 
 	std::string getTarget() const;
+	void setTarget(std::string const &target);
 
 	virtual void executeAction() const;
 };

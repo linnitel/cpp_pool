@@ -1,11 +1,11 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", SHRUB_S_GRADE, SHRUB_E_GRADE),
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Shrubbery creation", SHRUB_S_GRADE, SHRUB_E_GRADE),
 														_target("Nothing") {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("ShrubberyCreationForm",
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("Shrubbery creation",
 														SHRUB_S_GRADE, SHRUB_E_GRADE) {
 	this->_target = target;
 }
@@ -13,7 +13,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &form): AForm("ShrubberyCreationForm",
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &form): AForm("Shrubbery creation",
 																					  SHRUB_S_GRADE, SHRUB_E_GRADE) {
 	this->_target = form.getTarget();
 }

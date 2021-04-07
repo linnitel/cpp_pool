@@ -22,9 +22,9 @@ public:
 	virtual ~ShrubberyCreationForm();
 
 	std::string getTarget() const;
+	void setTarget(std::string const &target);
 
 	virtual void executeAction() const;
-
 };
 
 #endif

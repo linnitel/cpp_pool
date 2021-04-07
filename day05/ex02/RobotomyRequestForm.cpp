@@ -1,12 +1,12 @@
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", ROB_S_GRADE, ROB_E_GRADE),
+RobotomyRequestForm::RobotomyRequestForm(): AForm("Robotomy request", ROB_S_GRADE, ROB_E_GRADE),
 												_target("Nothing") {
 	std::srand(std::time(0));
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const &target): AForm("RobotomyRequestForm",
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target): AForm("Robotomy request",
 																			   ROB_S_GRADE, ROB_E_GRADE) {
 	this->_target = target;
 	std::srand(std::time(0));
@@ -15,7 +15,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const &target): AForm("Robo
 RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &form): AForm("RobotomyRequestForm",
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &form): AForm("Robotomy request",
 																					   ROB_S_GRADE, ROB_E_GRADE) {
 	this->_target = form.getTarget();
 	std::srand(std::time(0));

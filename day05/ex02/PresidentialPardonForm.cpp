@@ -1,11 +1,11 @@
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", PRES_S_GRADE, PRES_E_GRADE),
+PresidentialPardonForm::PresidentialPardonForm(): AForm("Presidential pardon", PRES_S_GRADE, PRES_E_GRADE),
 											_target("Nothing") {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target): AForm("PresidentialPardonForm",
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target): AForm("Presidential pardon",
 																		   PRES_S_GRADE, PRES_E_GRADE) {
 	this->_target = target;
 }
@@ -13,7 +13,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const &target): AForm
 PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &form): AForm("PresidentialPardonForm",
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &form): AForm("Presidential pardon",
 																				 PRES_S_GRADE, PRES_E_GRADE) {
 	this->_target = form.getTarget();
 }

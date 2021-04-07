@@ -24,7 +24,6 @@ public:
 	std::string getTarget() const;
 
 	virtual void executeAction() const;
-
 };
 
 #endif

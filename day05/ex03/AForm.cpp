@@ -63,7 +63,7 @@ void AForm::beSigned(const Bureaucrat &B) {
 	if (!this->_signed) {
 		if (B.getGrade() < this->_signGrade) {
 			this->_signed = true;
-			std::cout << B.getName() << " signs " << this->_name << std::endl;
+			std::cout << B.getName() << " signs " << this->_name << " form" << std::endl;
 		}
 		else {
 			throw AForm::GradeTooLowException();

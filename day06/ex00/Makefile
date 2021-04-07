@@ -1,12 +1,12 @@
-NAME = bureaucrat
+NAME = convert
 
 CC = clang++
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRCS = main.cpp Convertion.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp Intern.hpp
+HEADERS = Convertion.hpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 

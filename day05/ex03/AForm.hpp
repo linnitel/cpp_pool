@@ -27,6 +27,8 @@ public:
 	int getExecuteGrade() const;
 	bool getSigned() const;
 
+	virtual void setTarget(std::string const &target) = 0;
+
 	void beSigned(const Bureaucrat &B);
 	void execute(Bureaucrat const & executor) const;
 	virtual void executeAction() const = 0;
