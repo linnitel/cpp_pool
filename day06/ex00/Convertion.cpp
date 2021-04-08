@@ -2,11 +2,11 @@
 #include "Convertion.hpp"
 
 Convertion::Convertion(): _c(0), _num(0), _fNum(0), _dNum(0), _cStr(""), _iStr(""),
-							_fStr(""), _dStr(""), _initType('\0') {
+							_fStr(""), _dStr(""), _initType('\0'), _nan(false) {
 }
 
 Convertion::Convertion(const Convertion &conv): _c(conv.getC()), _num(conv.getNum()), _fNum(conv.getFNum()),
-				_dNum(conv.getDNum()), _cStr(""), _iStr(""), _fStr(""), _dStr(""), _initType('\0') {
+				_dNum(conv.getDNum()), _cStr(""), _iStr(""), _fStr(""), _dStr(""), _initType('\0'), _nan(false) {
 	*this = conv;
 }
 
@@ -19,6 +19,7 @@ void Convertion::operator=(const Convertion &conv) {
 	this->_fNum = conv.getFNum();
 	this->_dNum = conv.getDNum();
 	this->_initType = conv.getInitType();
+	this->_nan = conv.getNan();
 }
 
 char Convertion::getC() const {
@@ -59,6 +60,10 @@ std::string Convertion::getFStr() const {
 
 std::string Convertion::getDStr() const {
 	return this->_dStr;
+}
+
+bool Convertion::getNan() const {
+	return this->_nan;
 }
 
 int Convertion::_tryChar(const std::string &init) {
@@ -138,7 +143,7 @@ void Convertion::_convertFromInt() {
 }
 
 void Convertion::_convertFromFloat() {
-	if (this->_fNum < MIN_CHAR || this->_fNum > MAX_CHAR || this->_fNum == NAN || this->_fNum == INFINITY) {
+	if (this->_fNum < MIN_CHAR || this->_fNum > MAX_CHAR || this->_nan) {
 		this->_cStr = "impossible";
 	}
 	else if (this->_fNum < MIN_DISPL_CHAR || this->_fNum > MAX_DISPL_CHAR) {
@@ -147,8 +152,8 @@ void Convertion::_convertFromFloat() {
 	else {
 		this->_c = static_cast<char>(this->_fNum);
 	}
-	if (this->_fNum < static_cast<float>(MIN_INT) || this->_fNum > static_cast<float>(MAX_INT) || this->_fNum == NAN || this->_fNum == INFINITY) {
-		this->_cStr = "impossible";
+	if (this->_fNum < static_cast<float>(MIN_INT) || this->_fNum > static_cast<float>(MAX_INT) || this->_nan) {
+		this->_iStr = "impossible";
 	}
 	else {
 		this->_num = static_cast<int>(this->_fNum);
@@ -157,7 +162,7 @@ void Convertion::_convertFromFloat() {
 }
 
 void Convertion::_convertFromDouble() {
-	if (this->_dNum < MIN_CHAR || this->_dNum > MAX_CHAR || this->_dNum == NAN || this->_dNum == INFINITY) {
+	if (this->_dNum < MIN_CHAR || this->_dNum > MAX_CHAR || this->_nan) {
 		this->_cStr = "impossible";
 	}
 	else if (this->_dNum < MIN_DISPL_CHAR || this->_dNum > MAX_DISPL_CHAR) {
@@ -166,8 +171,9 @@ void Convertion::_convertFromDouble() {
 	else {
 		this->_c = static_cast<char>(this->_dNum);
 	}
-	if (this->_dNum < static_cast<float>(MIN_INT) || this->_dNum > static_cast<double>(MAX_INT) || this->_dNum == NAN || this->_dNum == INFINITY) {
-		this->_cStr = "impossible";
+	std::cout << INFINITY << std::endl;
+	if (this->_dNum < static_cast<double>(MIN_INT) || this->_dNum > static_cast<double>(MAX_INT) || this->_nan) {
+		this->_iStr = "impossible";
 	}
 	else {
 		this->_num = static_cast<int>(this->_dNum);
@@ -180,6 +186,10 @@ void Convertion::convertStr(const std::string &init) {
 	this->_iStr = "";
 	this->_fStr = "";
 	this->_dStr = "";
+	this->_nan = false;
+	if (init == "nan" || init == "nanf") {
+		this->_nan = true;
+	}
 	if (_tryChar(init) == 1 || _tryInt(init) == 1 || _tryFloatDouble(init) == 1) {
 		if (this->_initType == CHAR) {
 			_converFromChar();

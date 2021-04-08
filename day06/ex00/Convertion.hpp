@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <cstdlib>
+#include <climits>
 
 #define MAX_INT 2147483647
 #define MIN_INT -2147483648
@@ -31,6 +32,7 @@ private:
 	std::string _fStr;
 	std::string _dStr;
 	char _initType;
+	bool _nan;
 
 	void operator=(const Convertion &conv);
 
@@ -57,6 +59,7 @@ public:
 	std::string getIStr() const;
 	std::string getFStr() const;
 	std::string getDStr() const;
+	bool getNan() const;
 
 
 	void convertStr(std::string const &init);
