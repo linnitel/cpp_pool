@@ -32,24 +32,36 @@ std::string getRandomString() {
 
 void *serialize(void) {
 	std::srand(std::time(0));
-	std::string strOne = std::string(getRandomString());
-	static int strOneSize = static_cast<int>(strOne.size());
-	int *num = new int;
-	*num = std::rand() % 1000;
-	std::string strTwo = std::string(getRandomString());
-	static int strTwoSize = static_cast<int>(strTwo.size());
-	char *raw = new char[strOneSize + (sizeof(int) * 3) + strTwoSize];
-	raw =
+	char *raw;
+	raw = new char[sizeof(std::string) * 2 + sizeof(int)];
+	std::string *strOne = reinterpret_cast<std::string*>(raw);
+	new (strOne) std::string(getRandomString());
+	std::cout << "String one: " << *strOne << std::endl;
+	int *num = reinterpret_cast<int*>(raw + sizeof(std::string));
+	*num = std::rand() % 21000;
+	std::cout << "Number: " << *num << std::endl;
+	std::string *strTwo = reinterpret_cast<std::string*>(raw + sizeof(std::string) + sizeof(int));
+	new (strTwo) std::string(getRandomString());
+	std::cout << "String two: " << *strTwo << std::endl;
 	return raw;
 }
 
 Data *deserialize(void *raw) {
-	(void)raw;
+	Data *data = new Data;
+	data->strOne = *reinterpret_cast<std::string*>(raw);
+	data->num = *reinterpret_cast<int*>(reinterpret_cast<char*>(raw) + sizeof(std::string));
+	data->strTwo = *reinterpret_cast<std::string*>(reinterpret_cast<char*>(raw) + sizeof(std::string) + sizeof(int));
+	return data;
 }
 
 int main()
 {
 	void *raw = serialize();
-	newData *data = deserialize(raw);
+	Data *data = deserialize(raw);
+	std::cout << "String one: " << data->strOne << std::endl;
+	std::cout << "Number: " << data->num << std::endl;
+	std::cout << "String two: " << data->strTwo << std::endl;
+	delete data;
+	delete reinterpret_cast<char*>(raw);
 	return 0;
 }
