@@ -6,7 +6,7 @@
 int main()
 {
 	Bureaucrat norman("Norman", 13);
-	td::cout << norman;
+	std::cout << norman;
 	norman.upGrade();
 	std::cout << norman;
 	norman.downGrade();

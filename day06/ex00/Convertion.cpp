@@ -171,7 +171,6 @@ void Convertion::_convertFromDouble() {
 	else {
 		this->_c = static_cast<char>(this->_dNum);
 	}
-	std::cout << INFINITY << std::endl;
 	if (this->_dNum < static_cast<double>(MIN_INT) || this->_dNum > static_cast<double>(MAX_INT) || this->_nan) {
 		this->_iStr = "impossible";
 	}

@@ -1,12 +1,12 @@
-NAME = iter
+NAME = mutantstack
 
 CC = clang++
 
-SRCS = main.cpp A.cpp
+SRCS = main.cpp mutantstack.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = iter.hpp A.hpp
+HEADERS = mutantstack.hpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 

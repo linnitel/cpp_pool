@@ -1,12 +1,12 @@
-NAME = iter
+NAME = span
 
 CC = clang++
 
-SRCS = main.cpp A.cpp
+SRCS = main.cpp span.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = iter.hpp A.hpp
+HEADERS = span.hpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
